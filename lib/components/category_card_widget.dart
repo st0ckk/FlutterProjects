@@ -60,7 +60,6 @@ class _CategoryCardWidgetState extends State<CategoryCardWidget> {
         );
       },
       child: Container(
-        width: double.infinity,
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
