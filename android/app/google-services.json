@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "716860018267",
+    "project_id": "reposteria-q2e1ah",
+    "storage_bucket": "reposteria-q2e1ah.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716860018267:android:543a734a958d68cfff797e",
+        "android_client_info": {
+          "package_name": "com.mycompany.reposteria"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAk0svD4D1zqE-KLXDMvk1Ciz1ywZHln4k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
