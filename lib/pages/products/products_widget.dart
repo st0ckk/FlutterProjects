@@ -163,10 +163,15 @@ class _ProductsWidgetState extends State<ProductsWidget> {
                       EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                   child: StreamBuilder<List<ProductsRecord>>(
                     stream: queryProductsRecord(
-                      queryBuilder: (productsRecord) => productsRecord.where(
-                        'category',
-                        isEqualTo: widget.category,
-                      ),
+                      queryBuilder: (productsRecord) => productsRecord
+                          .where(
+                            'category',
+                            isEqualTo: widget.category,
+                          )
+                          .where(
+                            'active',
+                            isEqualTo: true,
+                          ),
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.

@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
+import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -76,13 +77,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? CategoriasWidget() : LoginWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? CategoriasWidget() : LoginWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
         ),
         FFRoute(
           name: LoginWidget.routeName,
@@ -92,7 +93,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: CategoriasWidget.routeName,
           path: CategoriasWidget.routePath,
-          builder: (context, params) => CategoriasWidget(),
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Categorias')
+              : CategoriasWidget(),
         ),
         FFRoute(
           name: ProductsWidget.routeName,
@@ -114,6 +117,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: UserCreateWidget.routeName,
           path: UserCreateWidget.routePath,
           builder: (context, params) => UserCreateWidget(),
+        ),
+        FFRoute(
+          name: UserCreateInHouseWidget.routeName,
+          path: UserCreateInHouseWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'userCreateInHouse')
+              : UserCreateInHouseWidget(),
+        ),
+        FFRoute(
+          name: PerfilWidget.routeName,
+          path: PerfilWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Perfil')
+              : PerfilWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

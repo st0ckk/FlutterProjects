@@ -37,6 +37,7 @@ dependencies:
   collection: 1.19.1
   cross_file: 0.3.5+1
   csslib: 1.0.2
+  dropdown_button2: 2.3.9
   file_picker: 10.1.9
   firebase_auth: 5.6.0
   firebase_auth_platform_interface: 7.7.0
