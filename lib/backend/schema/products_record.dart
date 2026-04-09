@@ -50,6 +50,16 @@ class ProductsRecord extends FirestoreRecord {
   DocumentReference? get category => _category;
   bool hasCategory() => _category != null;
 
+  // "active" field.
+  bool? _active;
+  bool get active => _active ?? false;
+  bool hasActive() => _active != null;
+
+  // "description" field.
+  String? _description;
+  String get description => _description ?? '';
+  bool hasDescription() => _description != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _sku = snapshotData['sku'] as String?;
@@ -58,6 +68,8 @@ class ProductsRecord extends FirestoreRecord {
     _quantity = castToType<int>(snapshotData['quantity']);
     _image = snapshotData['image'] as String?;
     _category = snapshotData['category'] as DocumentReference?;
+    _active = snapshotData['active'] as bool?;
+    _description = snapshotData['description'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -102,6 +114,8 @@ Map<String, dynamic> createProductsRecordData({
   int? quantity,
   String? image,
   DocumentReference? category,
+  bool? active,
+  String? description,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -112,6 +126,8 @@ Map<String, dynamic> createProductsRecordData({
       'quantity': quantity,
       'image': image,
       'category': category,
+      'active': active,
+      'description': description,
     }.withoutNulls,
   );
 
@@ -129,7 +145,9 @@ class ProductsRecordDocumentEquality implements Equality<ProductsRecord> {
         e1?.discount == e2?.discount &&
         e1?.quantity == e2?.quantity &&
         e1?.image == e2?.image &&
-        e1?.category == e2?.category;
+        e1?.category == e2?.category &&
+        e1?.active == e2?.active &&
+        e1?.description == e2?.description;
   }
 
   @override
@@ -140,7 +158,9 @@ class ProductsRecordDocumentEquality implements Equality<ProductsRecord> {
         e?.discount,
         e?.quantity,
         e?.image,
-        e?.category
+        e?.category,
+        e?.active,
+        e?.description
       ]);
 
   @override

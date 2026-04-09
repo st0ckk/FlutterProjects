@@ -1,8 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/categoria_edit_widget.dart';
-import '/components/category_card_widget.dart';
-import '/components/crear_categoria_widget.dart';
+import '/components/categoria_edit/categoria_edit_widget.dart';
+import '/components/category_card/category_card_widget.dart';
+import '/components/crear_categoria/crear_categoria_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';

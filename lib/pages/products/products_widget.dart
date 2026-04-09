@@ -1,5 +1,7 @@
 import '/backend/backend.dart';
-import '/components/product_card_widget.dart';
+import '/components/product_card/product_card_widget.dart';
+import '/components/producto_create/producto_create_widget.dart';
+import '/components/producto_edit/producto_edit_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -20,9 +22,11 @@ class ProductsWidget extends StatefulWidget {
   const ProductsWidget({
     super.key,
     this.category,
+    required this.categoryName,
   });
 
   final DocumentReference? category;
+  final String? categoryName;
 
   static String routeName = 'products';
   static String routePath = '/products';
@@ -82,7 +86,7 @@ class _ProductsWidgetState extends State<ProductsWidget> {
             children: [
               Text(
                 valueOrDefault<String>(
-                  widget.category?.id,
+                  widget.categoryName,
                   'Categoria',
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -108,8 +112,28 @@ class _ProductsWidgetState extends State<ProductsWidget> {
                   color: Color(0xFFC2185B),
                   size: 30.0,
                 ),
-                onPressed: () {
-                  print('IconButton pressed ...');
+                onPressed: () async {
+                  await showModalBottomSheet(
+                    isScrollControlled: true,
+                    backgroundColor: Colors.transparent,
+                    enableDrag: false,
+                    context: context,
+                    builder: (context) {
+                      return GestureDetector(
+                        onTap: () {
+                          FocusScope.of(context).unfocus();
+                          FocusManager.instance.primaryFocus?.unfocus();
+                        },
+                        child: Padding(
+                          padding: MediaQuery.viewInsetsOf(context),
+                          child: ProductoCreateWidget(
+                            defaultCategoryName: widget.categoryName,
+                            categoryRef: widget.category!,
+                          ),
+                        ),
+                      );
+                    },
+                  ).then((value) => safeSetState(() {}));
                 },
               ),
             ],
@@ -174,10 +198,58 @@ class _ProductsWidgetState extends State<ProductsWidget> {
                           final staggeredViewProductsRecord =
                               staggeredViewProductsRecordList[
                                   staggeredViewIndex];
-                          return ProductCardWidget(
-                            key: Key(
-                                'Key3u5_${staggeredViewIndex}_of_${staggeredViewProductsRecordList.length}'),
-                            productDoc: staggeredViewProductsRecord,
+                          return Stack(
+                            children: [
+                              ProductCardWidget(
+                                key: Key(
+                                    'Key3u5_${staggeredViewIndex}_of_${staggeredViewProductsRecordList.length}'),
+                                productDoc: staggeredViewProductsRecord,
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    6.0, 6.0, 0.0, 0.0),
+                                child: FlutterFlowIconButton(
+                                  borderRadius: 100.0,
+                                  buttonSize: 40.0,
+                                  fillColor: Color(0xFFFFC1DF),
+                                  icon: Icon(
+                                    Icons.edit,
+                                    color: Color(0xFFC2185B),
+                                    size: 24.0,
+                                  ),
+                                  onPressed: () async {
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Colors.transparent,
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return GestureDetector(
+                                          onTap: () {
+                                            FocusScope.of(context).unfocus();
+                                            FocusManager.instance.primaryFocus
+                                                ?.unfocus();
+                                          },
+                                          child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child: ProductoEditWidget(
+                                              productDoc:
+                                                  staggeredViewProductsRecord,
+                                              categoryRef:
+                                                  staggeredViewProductsRecord
+                                                      .category!,
+                                              defaultCategoryName:
+                                                  widget.categoryName,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
+                                  },
+                                ),
+                              ),
+                            ],
                           );
                         },
                       );

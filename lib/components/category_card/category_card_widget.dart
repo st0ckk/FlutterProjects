@@ -56,6 +56,10 @@ class _CategoryCardWidgetState extends State<CategoryCardWidget> {
               widget.categoryDoc?.reference,
               ParamType.DocumentReference,
             ),
+            'categoryName': serializeParam(
+              widget.categoryDoc?.name,
+              ParamType.String,
+            ),
           }.withoutNulls,
         );
       },

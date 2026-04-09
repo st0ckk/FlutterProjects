@@ -1,4 +1,4 @@
-import '/components/category_card_widget.dart';
+import '/components/category_card/category_card_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'categorias_widget.dart' show CategoriasWidget;

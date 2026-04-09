@@ -170,7 +170,7 @@ class _CategoriaEditWidgetState extends State<CategoriaEditWidget> {
                       child: Icon(
                         Icons.camera_alt,
                         color: Colors.white,
-                        size: 34.0,
+                        size: 24.0,
                       ),
                     ),
                   ),
