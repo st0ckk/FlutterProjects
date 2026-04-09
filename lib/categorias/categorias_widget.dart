@@ -1,6 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/categoria_edit_widget.dart';
 import '/components/category_card_widget.dart';
+import '/components/crear_categoria_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -48,6 +50,35 @@ class _CategoriasWidgetState extends State<CategoriasWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Color(0xFFFFF5F7),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            await showModalBottomSheet(
+              isScrollControlled: true,
+              backgroundColor: Colors.transparent,
+              enableDrag: false,
+              context: context,
+              builder: (context) {
+                return GestureDetector(
+                  onTap: () {
+                    FocusScope.of(context).unfocus();
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
+                  child: Padding(
+                    padding: MediaQuery.viewInsetsOf(context),
+                    child: CrearCategoriaWidget(),
+                  ),
+                );
+              },
+            ).then((value) => safeSetState(() {}));
+          },
+          backgroundColor: Color(0xFFC2185B),
+          elevation: 8.0,
+          child: Icon(
+            Icons.add_rounded,
+            color: FlutterFlowTheme.of(context).info,
+            size: 24.0,
+          ),
+        ),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(100.0),
           child: AppBar(
@@ -62,30 +93,8 @@ class _CategoriasWidgetState extends State<CategoriasWidget> {
                 children: [
                   Row(
                     mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                        child: FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30.0,
-                          borderWidth: 1.0,
-                          buttonSize: 50.0,
-                          icon: Icon(
-                            Icons.logout_rounded,
-                            color: Color(0xFFC2185B),
-                            size: 30.0,
-                          ),
-                          onPressed: () async {
-                            GoRouter.of(context).prepareAuthEvent();
-                            await authManager.signOut();
-                            GoRouter.of(context).clearRedirectLocation();
-
-                            context.goNamedAuth(
-                                LoginWidget.routeName, context.mounted);
-                          },
-                        ),
-                      ),
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
@@ -128,13 +137,32 @@ class _CategoriasWidgetState extends State<CategoriasWidget> {
                           ),
                         ),
                       ),
+                      FlutterFlowIconButton(
+                        borderColor: Colors.transparent,
+                        borderRadius: 30.0,
+                        borderWidth: 1.0,
+                        buttonSize: 50.0,
+                        icon: Icon(
+                          Icons.logout_rounded,
+                          color: Color(0xFFC2185B),
+                          size: 30.0,
+                        ),
+                        onPressed: () async {
+                          GoRouter.of(context).prepareAuthEvent();
+                          await authManager.signOut();
+                          GoRouter.of(context).clearRedirectLocation();
+
+                          context.goNamedAuth(
+                              LoginWidget.routeName, context.mounted);
+                        },
+                      ),
                     ],
                   ),
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 10.0),
                     child: Text(
-                      'Postres Franceses',
+                      'Postres',
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
                                 font: GoogleFonts.interTight(
@@ -199,7 +227,7 @@ class _CategoriasWidgetState extends State<CategoriasWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 16.0),
                       child: Text(
-                        'Explora nuestra selección de pasteles franceses',
+                        'Explora nuestra selección de postres alrededor del mundo',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               font: GoogleFonts.inter(
                                 fontWeight: FlutterFlowTheme.of(context)
@@ -260,18 +288,64 @@ class _CategoriasWidgetState extends State<CategoriasWidget> {
                             itemBuilder: (context, gridViewIndex) {
                               final gridViewCategoriesRecord =
                                   gridViewCategoriesRecordList[gridViewIndex];
-                              return wrapWithModel(
-                                model: _model.categoryCardModels.getModel(
-                                  gridViewCategoriesRecord.reference.id,
-                                  gridViewIndex,
-                                ),
-                                updateCallback: () => safeSetState(() {}),
-                                child: CategoryCardWidget(
-                                  key: Key(
-                                    'Keyxj7_${gridViewCategoriesRecord.reference.id}',
+                              return Stack(
+                                children: [
+                                  wrapWithModel(
+                                    model: _model.categoryCardModels.getModel(
+                                      gridViewCategoriesRecord.reference.id,
+                                      gridViewIndex,
+                                    ),
+                                    updateCallback: () => safeSetState(() {}),
+                                    child: CategoryCardWidget(
+                                      key: Key(
+                                        'Keyxj7_${gridViewCategoriesRecord.reference.id}',
+                                      ),
+                                      categoryDoc: gridViewCategoriesRecord,
+                                    ),
                                   ),
-                                  categoryDoc: gridViewCategoriesRecord,
-                                ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        6.0, 6.0, 0.0, 0.0),
+                                    child: FlutterFlowIconButton(
+                                      borderRadius: 100.0,
+                                      buttonSize: 40.0,
+                                      fillColor: Color(0xFFFFC1DF),
+                                      icon: Icon(
+                                        Icons.edit,
+                                        color: Color(0xFFC2185B),
+                                        size: 24.0,
+                                      ),
+                                      onPressed: () async {
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child: CategoriaEditWidget(
+                                                  categoryDoc:
+                                                      gridViewCategoriesRecord,
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
+                                      },
+                                    ),
+                                  ),
+                                ],
                               );
                             },
                           );

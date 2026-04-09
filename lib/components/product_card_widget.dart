@@ -1,7 +1,6 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'product_card_model.dart';
@@ -198,7 +197,12 @@ class _ProductCardWidgetState extends State<ProductCardWidget> {
                             ),
                             Text(
                               valueOrDefault<String>(
-                                widget.productDoc?.quantity.toString(),
+                                formatNumber(
+                                  widget.productDoc?.quantity,
+                                  formatType: FormatType.custom,
+                                  format: 'Qt: ',
+                                  locale: '',
+                                ),
                                 'Qt: 0',
                               ),
                               style: FlutterFlowTheme.of(context)
@@ -261,9 +265,9 @@ class _ProductCardWidgetState extends State<ProductCardWidget> {
                               valueOrDefault<String>(
                                 formatNumber(
                                   widget.productDoc?.discount,
-                                  formatType: FormatType.decimal,
-                                  decimalType: DecimalType.periodDecimal,
-                                  currency: '₡',
+                                  formatType: FormatType.custom,
+                                  format: '₡',
+                                  locale: '',
                                 ),
                                 '₡0',
                               ),
@@ -286,48 +290,6 @@ class _ProductCardWidgetState extends State<ProductCardWidget> {
                                   ),
                             ),
                           ].divide(SizedBox(width: 4.0)),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
-                        child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
-                          },
-                          text: 'Buy Now',
-                          options: FFButtonOptions(
-                            width: double.infinity,
-                            height: 34.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 8.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: Color(0xFFE91E8C),
-                            textStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  font: GoogleFonts.inter(
-                                    fontWeight: FontWeight.bold,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
-                                  ),
-                                  color: Colors.white,
-                                  fontSize: 12.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontStyle,
-                                ),
-                            elevation: 0.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 0.0,
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
                         ),
                       ),
                     ],

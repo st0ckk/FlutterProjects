@@ -84,7 +84,7 @@ class _CategoryCardWidgetState extends State<CategoryCardWidget> {
                 borderRadius: BorderRadius.circular(16.0),
                 child: Container(
                   width: double.infinity,
-                  height: 130.0,
+                  height: 131.06,
                   decoration: BoxDecoration(
                     color: Color(0xFFFCE4EC),
                     borderRadius: BorderRadius.circular(16.0),
@@ -130,7 +130,7 @@ class _CategoryCardWidgetState extends State<CategoryCardWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(12.0, 10.0, 12.0, 14.0),
                 child: Column(
-                  mainAxisSize: MainAxisSize.max,
+                  mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -154,37 +154,34 @@ class _CategoryCardWidgetState extends State<CategoryCardWidget> {
                                 .fontStyle,
                           ),
                     ),
-                    Expanded(
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
-                        child: Text(
-                          valueOrDefault<String>(
-                            widget.categoryDoc?.description,
-                            'Sin descripcion',
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).bodySmall.override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .fontStyle,
-                                    ),
-                                    color: Color(0xFFAD1457),
-                                    fontSize: 11.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .fontStyle,
-                                    lineHeight: 1.4,
-                                  ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                      child: Text(
+                        valueOrDefault<String>(
+                          widget.categoryDoc?.description,
+                          'Sin descripcion',
                         ),
+                        style: FlutterFlowTheme.of(context).bodySmall.override(
+                              font: GoogleFonts.inter(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .fontStyle,
+                              ),
+                              color: Color(0xFFAD1457),
+                              fontSize: 11.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .fontStyle,
+                              lineHeight: 1.4,
+                            ),
                       ),
                     ),
                   ],
