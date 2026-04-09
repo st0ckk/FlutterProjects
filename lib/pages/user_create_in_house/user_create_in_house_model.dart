@@ -6,51 +6,51 @@ import 'package:flutter/material.dart';
 class UserCreateInHouseModel extends FlutterFlowModel<UserCreateInHouseWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode3;
-  TextEditingController? textController3;
-  late bool passwordVisibility;
-  String? Function(BuildContext, String?)? textController3Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode4;
-  TextEditingController? textController4;
-  String? Function(BuildContext, String?)? textController4Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode5;
-  TextEditingController? textController5;
-  String? Function(BuildContext, String?)? textController5Validator;
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
+  // State field(s) for nameTxt widget.
+  FocusNode? nameTxtFocusNode;
+  TextEditingController? nameTxtTextController;
+  String? Function(BuildContext, String?)? nameTxtTextControllerValidator;
+  // State field(s) for mailTxt widget.
+  FocusNode? mailTxtFocusNode;
+  TextEditingController? mailTxtTextController;
+  String? Function(BuildContext, String?)? mailTxtTextControllerValidator;
+  // State field(s) for passTxt widget.
+  FocusNode? passTxtFocusNode;
+  TextEditingController? passTxtTextController;
+  late bool passTxtVisibility;
+  String? Function(BuildContext, String?)? passTxtTextControllerValidator;
+  // State field(s) for phoneTxt widget.
+  FocusNode? phoneTxtFocusNode;
+  TextEditingController? phoneTxtTextController;
+  String? Function(BuildContext, String?)? phoneTxtTextControllerValidator;
+  // State field(s) for locTxt widget.
+  FocusNode? locTxtFocusNode;
+  TextEditingController? locTxtTextController;
+  String? Function(BuildContext, String?)? locTxtTextControllerValidator;
+  // State field(s) for DropDownRole widget.
+  String? dropDownRoleValue;
+  FormFieldController<String>? dropDownRoleValueController;
 
   @override
   void initState(BuildContext context) {
-    passwordVisibility = false;
+    passTxtVisibility = false;
   }
 
   @override
   void dispose() {
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    nameTxtFocusNode?.dispose();
+    nameTxtTextController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    mailTxtFocusNode?.dispose();
+    mailTxtTextController?.dispose();
 
-    textFieldFocusNode3?.dispose();
-    textController3?.dispose();
+    passTxtFocusNode?.dispose();
+    passTxtTextController?.dispose();
 
-    textFieldFocusNode4?.dispose();
-    textController4?.dispose();
+    phoneTxtFocusNode?.dispose();
+    phoneTxtTextController?.dispose();
 
-    textFieldFocusNode5?.dispose();
-    textController5?.dispose();
+    locTxtFocusNode?.dispose();
+    locTxtTextController?.dispose();
   }
 }

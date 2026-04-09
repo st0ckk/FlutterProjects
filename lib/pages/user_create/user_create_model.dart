@@ -39,6 +39,14 @@ class UserCreateModel extends FlutterFlowModel<UserCreateWidget> {
     return null;
   }
 
+  // State field(s) for phoneField widget.
+  FocusNode? phoneFieldFocusNode;
+  TextEditingController? phoneFieldTextController;
+  String? Function(BuildContext, String?)? phoneFieldTextControllerValidator;
+  // State field(s) for addressField widget.
+  FocusNode? addressFieldFocusNode;
+  TextEditingController? addressFieldTextController;
+  String? Function(BuildContext, String?)? addressFieldTextControllerValidator;
   // State field(s) for passwordField widget.
   FocusNode? passwordFieldFocusNode;
   TextEditingController? passwordFieldTextController;
@@ -87,6 +95,12 @@ class UserCreateModel extends FlutterFlowModel<UserCreateWidget> {
 
     correoFieldFocusNode?.dispose();
     correoFieldTextController?.dispose();
+
+    phoneFieldFocusNode?.dispose();
+    phoneFieldTextController?.dispose();
+
+    addressFieldFocusNode?.dispose();
+    addressFieldTextController?.dispose();
 
     passwordFieldFocusNode?.dispose();
     passwordFieldTextController?.dispose();

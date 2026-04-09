@@ -5,4 +5,4 @@ export '/pages/products/products_widget.dart' show ProductsWidget;
 export '/pages/user_create/user_create_widget.dart' show UserCreateWidget;
 export '/pages/user_create_in_house/user_create_in_house_widget.dart'
     show UserCreateInHouseWidget;
-export '/perfil/perfil_widget.dart' show PerfilWidget;
+export '/pages/perfil/perfil_widget.dart' show PerfilWidget;

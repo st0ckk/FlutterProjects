@@ -1089,7 +1089,10 @@ class _ProductoEditWidgetState extends State<ProductoEditWidget> {
                                   _model.priceTxtTextController.text),
                               quantity: int.tryParse(
                                   _model.qtyTxtTextController.text),
-                              image: _model.uploadedFileUrl_uploadDataQqj,
+                              image: _model.uploadedImageUrl != null &&
+                                      _model.uploadedImageUrl != ''
+                                  ? _model.uploadedImageUrl
+                                  : widget.productDoc?.image,
                               category: widget.categoryRef,
                               active: _model.switchValue,
                               description: _model.descTxtTextController.text,
