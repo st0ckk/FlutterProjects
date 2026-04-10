@@ -157,7 +157,8 @@ class _CategoriaEditWidgetState extends State<CategoriaEditWidget> {
                         }
                       }
 
-                      _model.uploadedImageUrl = '';
+                      _model.uploadedImageUrl =
+                          _model.uploadedFileUrl_uploadData71x;
                       safeSetState(() {});
                     },
                     child: Container(
@@ -455,6 +456,7 @@ class _CategoriaEditWidgetState extends State<CategoriaEditWidget> {
                         .update(createCategoriesRecordData(
                       name: _model.catNombreTextController.text,
                       description: _model.catDescTextController.text,
+                      image: _model.uploadedFileUrl_uploadData71x,
                     ));
                     Navigator.pop(context);
                   },
