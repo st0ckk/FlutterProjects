@@ -68,113 +68,114 @@ class _UserCreateWidgetState extends State<UserCreateWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Color(0xFFF9F0F5),
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Container(
-              width: double.infinity,
-              height: 280.0,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Color(0xFFFDE8F0), Color(0xFFF5C6DC)],
-                  stops: [0.0, 1.0],
-                  begin: AlignmentDirectional(0.0, -1.0),
-                  end: AlignmentDirectional(0, 1.0),
-                ),
-                borderRadius: BorderRadius.circular(0.0),
-              ),
-              child: Stack(
-                alignment: AlignmentDirectional(0.0, 0.0),
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 280.0,
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                    ),
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Container(
+                width: double.infinity,
+                height: 280.0,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Color(0xFFFDE8F0), Color(0xFFF5C6DC)],
+                    stops: [0.0, 1.0],
+                    begin: AlignmentDirectional(0.0, -1.0),
+                    end: AlignmentDirectional(0, 1.0),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 90.0,
-                          height: 90.0,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFFDE8F0),
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              color: Color(0xFFFAB8D4),
-                              width: 3.0,
+                  borderRadius: BorderRadius.circular(0.0),
+                ),
+                child: Stack(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      height: 280.0,
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 90.0,
+                            height: 90.0,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFFDE8F0),
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: Color(0xFFFAB8D4),
+                                width: 3.0,
+                              ),
                             ),
-                          ),
-                          child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Text(
-                                '🥐',
-                                style: TextStyle(
-                                  fontSize: 44.0,
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text(
+                                  '🥐',
+                                  style: TextStyle(
+                                    fontSize: 44.0,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 12.0, 0.0, 0.0),
-                          child: Text(
-                            'Pâtisserie',
-                            style: FlutterFlowTheme.of(context)
-                                .headlineLarge
-                                .override(
-                                  font: GoogleFonts.interTight(
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 12.0, 0.0, 0.0),
+                            child: Text(
+                              'Pâtisserie',
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineLarge
+                                  .override(
+                                    font: GoogleFonts.interTight(
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .headlineLarge
+                                          .fontStyle,
+                                    ),
+                                    color: Color(0xFF8B4A6B),
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .headlineLarge
                                         .fontStyle,
                                   ),
-                                  color: Color(0xFF8B4A6B),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .headlineLarge
-                                      .fontStyle,
-                                ),
+                            ),
                           ),
-                        ),
-                        Text(
-                          'Crea tu dulce cuenta',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FontWeight.normal,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    color: Color(0xFFBA7A9A),
-                                    letterSpacing: 0.0,
+                          Text(
+                            'Crea tu dulce cuenta',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  font: GoogleFonts.inter(
                                     fontWeight: FontWeight.normal,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontStyle,
                                   ),
-                        ),
-                      ],
+                                  color: Color(0xFFBA7A9A),
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-              child: SingleChildScrollView(
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -1039,6 +1040,7 @@ class _UserCreateWidgetState extends State<UserCreateWidget> {
                                 address: _model.addressFieldTextController.text,
                                 phoneNumber:
                                     _model.phoneFieldTextController.text,
+                                role: 'Empleado',
                               ));
 
                           context.pushNamedAuth(
@@ -1138,8 +1140,8 @@ class _UserCreateWidgetState extends State<UserCreateWidget> {
                       .addToEnd(SizedBox(height: 40.0)),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

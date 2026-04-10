@@ -727,6 +727,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                               displayName: _model.textController1.text,
                               phoneNumber: _model.textController3.text,
                               address: _model.textController4.text,
+                              role: _model.dropDownValue,
                             ));
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
